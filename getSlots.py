@@ -13,12 +13,6 @@ class getSlots():
 
         self.data = {"date" : "eq" + self.date, "appointment-type" : self.appointment_type}
 
-        # todo should be this:
-        # self.data = {"date" : "eq" + self.date, "appointment-type" : self.appointment_type,
-        #               "identifier" : "identifier\=https://www.hl7.org/fhir/v2/0203/index.html\#v2-0203-FI\|{}"
-        #               .format(self.location_id)"}
-
-
     def getSlots(self):
         call = requests.get(url=self.base_url, headers=self.headers, params=self.data)
         slots = call.json()
